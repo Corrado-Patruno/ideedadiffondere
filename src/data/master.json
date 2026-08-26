@@ -1,0 +1,94 @@
+{
+  "ticker": ["Cultura", "Comunità", "Eventi", "Idee", "TEDx"],
+
+  "team": [
+    { "nome": "Adriano Del Re", "ruolo": "", "immagine": "/membri/adriano-del-re.jpg", "linkedin": "" },
+    { "nome": "Angelo Falcone", "ruolo": "", "immagine": "/membri/angelo-falcone.jpg", "linkedin": "" },
+    { "nome": "Anna Paolillo", "ruolo": "", "immagine": "/membri/anna-paolillo.jpg", "linkedin": "" },
+    { "nome": "Antonio Dipietro", "ruolo": "", "immagine": "/membri/antonio-dipietro.jpg", "linkedin": "" },
+    { "nome": "Corrado Patruno", "ruolo": "", "immagine": "/membri/corrado-patruno.jpg", "linkedin": "" },
+    { "nome": "Cristina Stanganello", "ruolo": "", "immagine": "/membri/cristina-stanganello.jpg", "linkedin": "" },
+    { "nome": "Elio Palumbieri", "ruolo": "", "immagine": "/membri/elio-palumbieri.jpg", "linkedin": "" },
+    { "nome": "Francesca Pedico", "ruolo": "", "immagine": "/membri/francesca-pedico.jpg", "linkedin": "" },
+    { "nome": "Francesca Ricco", "ruolo": "", "immagine": "/membri/francesca-ricco.jpg", "linkedin": "" },
+    { "nome": "Gianfrancesca Distaso", "ruolo": "", "immagine": "/membri/gianfrancesca-distaso.jpg", "linkedin": "" },
+    { "nome": "Giuliana Damato", "ruolo": "", "immagine": "/membri/giuliana-damato.jpg", "linkedin": "" },
+    { "nome": "Luigi Leonardo Cascella", "ruolo": "", "immagine": "/membri/luigi-leonardo-cascella.jpg", "linkedin": "" },
+    { "nome": "Maria Bollino", "ruolo": "", "immagine": "/membri/maria-bollino.jpg", "linkedin": "" },
+    { "nome": "Maria Luisa Dadduzio", "ruolo": "", "immagine": "/membri/maria-luisa-dadduzio.jpg", "linkedin": "" },
+    { "nome": "Maria Teresa Dibari", "ruolo": "", "immagine": "/membri/maria-teresa-dibari.jpg", "linkedin": "" },
+    { "nome": "Nicola Italia", "ruolo": "", "immagine": "/membri/nicola-italia.jpg", "linkedin": "" },
+    { "nome": "Nicolas Capasso", "ruolo": "", "immagine": "/membri/nicolas-capasso.jpg", "linkedin": "" },
+    { "nome": "Roberta Messinese", "ruolo": "", "immagine": "/membri/roberta-messinese.jpg", "linkedin": "" },
+    { "nome": "Ruggiero Disalvo", "ruolo": "", "immagine": "/membri/ruggiero-disalvo.jpg", "linkedin": "" },
+    { "nome": "Viviana Rondinone", "ruolo": "", "immagine": "/membri/viviana-rondinone.jpg", "linkedin": "" }
+  ],
+
+  "eventi": [
+    {
+      "titolo": "Supernova",
+      "comingSoon": true,
+      "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Foresta che Muove",
+      "data": "2024-10-19",
+      "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Pecore Elettriche",
+      "data": "2024-10-17",
+      "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Rumore",
+      "data": "2023-07-28",
+      "descrizione": "TEDxBarletta al Castello di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Tensione",
+      "data": "2022-09-03",
+      "descrizione": "TEDxBarletta al Castello di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Vita Nova",
+      "data": "2021-07-03",
+      "descrizione": "TEDxBarletta al Castello di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Sfide",
+      "data": "2020-09-05",
+      "descrizione": "TEDxBarletta al Castello di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    },
+    {
+      "titolo": "Terra",
+      "data": "2019-05-04",
+      "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
+      "link": "https://tedxbarletta.it/"
+    }
+  ],
+
+  "stampa": [
+    {
+      "testata": "Etimologia Magazine",
+      "anno": "2026",
+      "titolo": "TEDxBarletta 2026: al via la settima edizione",
+      "estratto": "TEDxBarletta si riconferma un punto di riferimento stabile e un cardine culturale imprescindibile per la collettività locale, provinciale e regionale.",
+      "link": "https://www.etimologiamagazine.com/2026/07/19/tedxbarletta-2026-settima-ed/",
+      "immagine": "/stampa/etimologia-tedxbarletta-2026.jpg"
+    }
+  ],
+
+  "contatti": {
+    "email": "info@ideedadiffondere.it",
+    "instagram": { "handle": "@ideedadiffondere", "url": "https://www.instagram.com/ideedadiffondere/" },
+    "sede": "Il castello — Italia"
+  }
+}

@@ -1,0 +1,103 @@
+.intro-track {
+  position: relative;
+  z-index: 2;
+  height: 550vh;
+  margin-bottom: -100vh;
+}
+
+@media (max-width: 760px) {
+  .intro-track {
+    height: 420vh;
+  }
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--pad);
+  padding-bottom: 110px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  will-change: opacity, transform;
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 7.5vw, 6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding-bottom: 88px;
+  }
+
+  .hero-title {
+    font-size: min(calc((100vw - 2 * var(--pad)) / 6.25), 6rem);
+  }
+
+  .hero-eyebrow {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+}
+
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-title .line > span {
+  display: block;
+  transform: translateY(115%);
+  transition: transform 1s var(--ease-out);
+}
+
+body.is-ready .hero-title .line:nth-child(1) > span { transition-delay: 0.15s; }
+body.is-ready .hero-title .line:nth-child(2) > span { transition-delay: 0.25s; }
+
+body.is-ready .hero-title .line > span {
+  transform: none;
+}
+
+.hero-hint {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  translate: -50% 0;
+  color: var(--fg);
+  opacity: 0;
+  transition: opacity 0.8s ease 1s;
+}
+
+body.is-ready .hero-hint {
+  opacity: 1;
+}
+
+.hint-arrow {
+  width: 26px;
+  height: 26px;
+  animation: hint-bounce 2s var(--ease-in-out) infinite;
+}
+
+@keyframes hint-bounce {
+  0%, 100% { transform: translateY(-4px); opacity: 0.4; }
+  50% { transform: translateY(4px); opacity: 1; }
+}

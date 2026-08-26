@@ -1,0 +1,215 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.is-loading {
+  overflow: hidden;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.42s;
+  animation-timing-function: var(--ease-out);
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.section {
+  position: relative;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: clamp(90px, 12vh, 150px) var(--pad);
+  /* Il padding sopra fa già da stacco sotto la nav: offset ridotto di proposito. */
+  scroll-margin-top: 40px;
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr minmax(240px, 360px);
+  align-items: end;
+  gap: 24px 48px;
+  margin-bottom: clamp(48px, 7vh, 88px);
+}
+
+.section-index {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.section-index::before {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.section-title {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.section-intro {
+  font-size: 0.98rem;
+  color: var(--muted);
+  max-width: 40ch;
+}
+
+@media (max-width: 760px) {
+  .section-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 1s var(--ease-spring);
+  transition-delay: calc(var(--d, 0) * 90ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.section-title {
+  overflow: hidden;
+  padding-block: 0.04em;
+}
+
+.section-title > span {
+  display: inline-block;
+  transform: translateY(115%);
+  transition: transform 1.05s var(--ease-out);
+  transition-delay: 0.12s;
+}
+
+.section-head.is-in .section-title > span {
+  transform: none;
+}
+
+.section-index::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s var(--ease-out) 0.15s;
+}
+
+.section-head.is-in .section-index::before {
+  transform: scaleX(1);
+}
+
+/* Ritorno dall'articolo: quello che è già in viewport si mostra senza rigiocare
+   l'animazione, comprese le transizioni annidate (foto team, titoli di sezione). */
+html.reveal-instant [data-reveal],
+html.reveal-instant [data-reveal] *,
+html.reveal-instant [data-reveal] *::before {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  .section-title > span,
+  .section-index::before {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [data-reveal],
+  [data-reveal] *,
+  [data-reveal] *::before {
+    transition: none !important;
+  }
+
+  .team-photo { clip-path: none !important; }
+  .team-photo img { transform: none !important; }
+
+  .ticker-inner {
+    animation: none !important;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 10;
+  background: var(--bg);
+}

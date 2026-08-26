@@ -1,0 +1,61 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: var(--bg);
+  transition: opacity 0.6s var(--ease-out), visibility 0.6s;
+}
+
+body.is-ready .loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html.no-intro .loader {
+  display: none;
+}
+
+.loader-logo {
+  position: relative;
+  width: min(148px, 34vw);
+  aspect-ratio: 128.5 / 141;
+  color: var(--fg);
+}
+
+.loader-logo .logo-mark {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  -webkit-mask-image: url('/loghi/logo-mark.svg');
+  mask-image: url('/loghi/logo-mark.svg');
+}
+
+.loader-logo-ghost {
+  opacity: 0.14;
+}
+
+.loader-logo-fill {
+  clip-path: inset(calc(100% - var(--p, 0) * 1%) 0 0 0);
+  transition: clip-path 0.15s linear;
+}
+
+.loader-bar {
+  width: min(200px, 46vw);
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.loader-bar > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--p, 0) * 1%);
+  background: var(--fg);
+  transition: width 0.15s linear;
+}

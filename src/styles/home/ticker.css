@@ -1,0 +1,30 @@
+.ticker {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  padding-block: 16px;
+  background: var(--bg);
+}
+
+.ticker-inner {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: ticker-scroll var(--ticker-dur, 30s) linear infinite;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.ticker-group {
+  display: flex;
+  flex: none;
+}
+
+.ticker-group > span {
+  margin-inline-end: 56px;
+}
+
+@keyframes ticker-scroll {
+  to { transform: translateX(calc(var(--ticker-shift, 50%) * -1)); }
+}

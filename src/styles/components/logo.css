@@ -1,0 +1,7 @@
+.logo-mark {
+  display: block;
+  aspect-ratio: 267 / 142;
+  background: currentColor;
+  -webkit-mask: url('/loghi/logo.svg') center / contain no-repeat;
+  mask: url('/loghi/logo.svg') center / contain no-repeat;
+}

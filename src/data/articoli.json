@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "inizio-lavori",
+    "titolo": "Inizio lavori",
+    "occhiello": "Associazione Idee da Diffondere",
+    "testata": "Idee da Diffondere",
+    "autore": "Redazione",
+    "data": "2026-08-04",
+    "estratto": "L'associazione riapre i lavori: si riprendono i progetti lasciati in sospeso e si mettono in fila quelli nuovi.",
+    "immagine": "/stampa/inizio-lavori.jpg",
+    "immagineAlt": "Il gruppo di volontari e organizzatori posa insieme sul palco del teatro a fine evento",
+    "corpo": [
+      {
+        "tipo": "paragrafo",
+        "testo": "Ricominciamo. Si torna al tavolo, si riaprono i progetti rimasti in sospeso e si mette in fila quello che verrà: incontri, collaborazioni sul territorio e il lavoro, lungo un anno intero, che porta TEDxBarletta sul palco."
+      },
+      {
+        "tipo": "paragrafo",
+        "testo": "Idee da Diffondere nasce da una convinzione semplice: che un'idea valga quanto le persone che riesce a raggiungere. Per questo il nostro mestiere non è avere idee, ma costruire le occasioni in cui possano circolare."
+      },
+      {
+        "tipo": "paragrafo",
+        "testo": "Nelle prossime settimane annunceremo date e programma. Chi volesse partecipare, proporre un'idea o semplicemente dare una mano può scriverci dalla sezione contatti: leggiamo tutto."
+      }
+    ]
+  }
+]

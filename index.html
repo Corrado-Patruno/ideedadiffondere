@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idee da Diffondere — Associazione culturale</title>
+  <meta name="description" content="Associazione Idee da Diffondere — cultura, comunità ed eventi a partire da un castello." />
+  <meta name="theme-color" content="#f1efe9" />
+  <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      try {
+        var storedTheme = localStorage.getItem('idd-theme');
+        if (storedTheme === 'dark' || (!storedTheme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          root.dataset.theme = 'dark';
+        }
+      } catch (e) {}
+
+      var skipIntro = false;
+      var isReload = false;
+      try {
+        var navigationEntry = performance.getEntriesByType('navigation')[0];
+        var navigationType = navigationEntry && navigationEntry.type;
+        isReload = navigationType === 'reload';
+
+        if (isReload) {
+          // Ricarica = intro da capo: il browser non deve ripristinare la
+          // posizione, e l'ancora nell'URL non deve far saltare l'apertura.
+          history.scrollRestoration = 'manual';
+          if (location.hash) {
+            history.replaceState(null, '', location.pathname + location.search);
+          }
+        }
+
+        var hasAnchor = location.hash && location.hash !== '#top';
+        var isBackForward = navigationType === 'back_forward';
+        // Dopo una ricarica il referrer resta quello di prima: va ignorato.
+        var comesFromArticle =
+          document.referrer &&
+          new URL(document.referrer).origin === location.origin &&
+          new URL(document.referrer).pathname.indexOf('/articolo') === 0;
+        skipIntro = !isReload && !!(hasAnchor || isBackForward || comesFromArticle);
+      } catch (e) {}
+
+      root.classList.add('pre-css', skipIntro ? 'no-intro' : 'is-loading');
+
+      try {
+        if (
+          matchMedia('(pointer: fine)').matches &&
+          !matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
+          root.classList.add('has-cursor-trail');
+        }
+      } catch (e) {}
+
+      addEventListener('load', function () {
+        root.classList.remove('pre-css');
+        if (!document.querySelector('.cursor-trail')) {
+          root.classList.remove('has-cursor-trail');
+        }
+        // Il ripristino serve ancora a indietro/avanti: si riattiva a intro finita.
+        if (isReload) history.scrollRestoration = 'auto';
+      });
+    })();
+  </script>
+
+  <style>
+    html { background: #f1efe9; }
+    html[data-theme='dark'] { background: #111110; }
+    html.pre-css body { visibility: hidden; }
+  </style>
+
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="preload" href="/loghi/logo.svg" as="image" />
+  <link rel="preload" href="/loghi/logo-mark.svg" as="image" />
+</head>
+<body>
+
+  <div id="loader" class="loader">
+    <div class="loader-logo" role="img" aria-label="Logo Associazione Idee da Diffondere">
+      <span class="logo-mark loader-logo-ghost"></span>
+      <span class="logo-mark loader-logo-fill"></span>
+    </div>
+
+    <div id="loader-bar" class="loader-bar" role="progressbar" aria-label="Caricamento"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span></span>
+    </div>
+  </div>
+
+  <canvas id="scena-3d" aria-hidden="true"></canvas>
+  <div class="scene-vignette" aria-hidden="true"></div>
+  <div id="intro-fade" class="intro-fade" aria-hidden="true"></div>
+  <div id="intro-progress" class="intro-progress" aria-hidden="true"><span></span></div>
+
+  <header id="site-nav" class="site-nav">
+    <a href="#top" class="brand" aria-label="Idee da Diffondere — torna all'inizio">
+      <span class="logo-mark" role="img" aria-label="Logo Associazione Idee da Diffondere"></span>
+    </a>
+
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="#eventi">Eventi</a>
+        <a href="#stampa">Stampa</a>
+        <a href="#team">Team</a>
+        <a href="#contatti" class="btn btn-small">Contattaci</a>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambia tema" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.4" />
+          <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3 19 19M19 5l-1.7 1.7M6.7 17.3 5 19" />
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+          <path d="M20.2 14.5A8.3 8.3 0 0 1 9.5 3.8a8.3 8.3 0 1 0 10.7 10.7Z" />
+        </svg>
+      </button>
+
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
+    <a href="#eventi">Eventi</a>
+    <a href="#stampa">Rassegna stampa</a>
+    <a href="#team">Team</a>
+    <a href="#contatti">Contattaci</a>
+  </nav>
+
+  <div id="intro-track" class="intro-track">
+    <section id="top" class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Associazione culturale</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Idee da</span></span>
+          <span class="line"><span>Diffondere</span></span>
+        </h1>
+      </div>
+
+      <div class="hero-hint" aria-hidden="true">
+        <svg class="hint-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 4v15m0 0 6-6m-6 6-6-6" />
+        </svg>
+      </div>
+    </section>
+  </div>
+
+  <main id="contenuti">
+
+    <div class="ticker" aria-hidden="true">
+      <div id="ticker-inner" class="ticker-inner"></div>
+    </div>
+
+    <section id="eventi" class="section">
+      <header class="section-head" data-reveal>
+        <p class="section-index">01</p>
+        <h2 class="section-title"><span>Eventi</span></h2>
+        <p class="section-intro">Cosa organizziamo e cosa ci aspetta nei prossimi mesi.</p>
+      </header>
+      <div id="eventi-list" class="eventi-list"></div>
+    </section>
+
+    <section id="stampa" class="section">
+      <header class="section-head" data-reveal>
+        <p class="section-index">02</p>
+        <h2 class="section-title"><span>Rassegna stampa</span></h2>
+        <p class="section-intro">Articoli, interviste e citazioni dalla stampa.</p>
+      </header>
+
+      <div class="stampa-wrap" data-reveal>
+        <div id="stampa-carousel" class="stampa-carousel" tabindex="0" aria-label="Carosello rassegna stampa"></div>
+        <div class="stampa-nav">
+          <button id="stampa-prev" class="carousel-btn" type="button" aria-label="Articolo precedente">←</button>
+          <button id="stampa-next" class="carousel-btn" type="button" aria-label="Articolo successivo">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <header class="section-head" data-reveal>
+        <p class="section-index">03</p>
+        <h2 class="section-title"><span>Il team</span></h2>
+        <p class="section-intro">Chi fa vivere l'associazione, tra idee, organizzazione e lavoro sul campo.</p>
+      </header>
+      <div id="team-grid" class="team-grid"></div>
+    </section>
+
+    <section id="contatti" class="section section-contatti">
+      <header class="section-head" data-reveal>
+        <p class="section-index">04</p>
+        <h2 class="section-title"><span>Contattaci</span></h2>
+        <p class="section-intro">Hai un'idea da proporre o vuoi saperne di più? Siamo qui.</p>
+      </header>
+
+      <div class="contatti-grid">
+        <div id="contatti-info" class="contatti-info" data-reveal></div>
+
+        <form id="contact-form" class="contact-form" data-reveal>
+          <label>
+            <span>Nome</span>
+            <input type="text" name="nome" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>Messaggio</span>
+            <textarea name="messaggio" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn">Invia messaggio</button>
+          <p id="form-status" class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-mark logo-footer" role="img" aria-label="Logo Associazione Idee da Diffondere"></span>
+        <p class="footer-note">Cultura, comunità e idee che prendono forma.</p>
+      </div>
+
+      <div class="footer-social">
+        <a class="social-btn" href="https://www.instagram.com/ideedadiffondere/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+        <a class="social-btn" href="mailto:info@ideedadiffondere.it" aria-label="Scrivici una email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
+            <path d="m4.5 7.5 7.5 6 7.5-6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <nav class="footer-links" aria-label="Navigazione footer">
+      <a href="#eventi">Eventi</a>
+      <a href="#stampa">Rassegna stampa</a>
+      <a href="#team">Team</a>
+      <a href="#contatti">Contattaci</a>
+    </nav>
+
+    <div class="footer-bottom">
+      <span>© 2026 Associazione Idee da Diffondere</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/home/index.js"></script>
+</body>
+</html>
