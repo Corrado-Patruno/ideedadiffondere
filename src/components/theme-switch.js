@@ -1,7 +1,6 @@
 import { select } from '../utils/dom.js';
 
 const STORAGE_KEY = 'idd-theme';
-const TRANSITION_MS = 500;
 
 const readCssVariable = (name) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -20,17 +19,27 @@ export function initThemeSwitch() {
   };
 
   const applyTheme = (theme) => {
-    root.classList.add('theme-switching');
-    if (theme === 'dark') root.dataset.theme = 'dark';
-    else delete root.dataset.theme;
+    const update = () => {
+      if (theme === 'dark') root.dataset.theme = 'dark';
+      else delete root.dataset.theme;
 
-    try {
-      localStorage.setItem(STORAGE_KEY, theme);
-    } catch {}
+      try {
+        localStorage.setItem(STORAGE_KEY, theme);
+      } catch {}
 
-    syncBrowserChrome();
-    changeListeners.forEach((listener) => listener(theme));
-    setTimeout(() => root.classList.remove('theme-switching'), TRANSITION_MS);
+      syncBrowserChrome();
+      changeListeners.forEach((listener) => listener(theme));
+    };
+
+    // Un crossfade nativo dell'intera pagina, che non tocca (e quindi non
+    // rompe) le transizioni CSS già definite sui singoli componenti.
+    if (document.startViewTransition) {
+      const transition = document.startViewTransition(update);
+      transition.ready.catch(() => {});
+      transition.finished.catch(() => {});
+    } else {
+      update();
+    }
   };
 
   toggleButton.addEventListener('click', () => {

@@ -1,7 +1,7 @@
 import { Box3, Sphere, Vector3 } from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
-import { GATE } from '../../config.js';
+import { GATE, MODEL_OFFSET } from '../../config.js';
 
 const MAX_REPORTED_PROGRESS = 99;
 
@@ -29,6 +29,12 @@ export async function loadCastle(url, onProgress) {
 
   const box = new Box3().setFromObject(object);
   const { radius } = box.getBoundingSphere(new Sphere());
+
+  const lift = radius * MODEL_OFFSET.verticalLift;
+  object.position.y += lift;
+  object.updateMatrixWorld(true);
+  box.min.y += lift;
+  box.max.y += lift;
 
   onProgress?.(100);
   return { object, box, radius };

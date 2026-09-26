@@ -1,10 +1,10 @@
-import { AmbientLight, Clock, Color, DirectionalLight, Fog, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { AmbientLight, Color, DirectionalLight, Fog, PerspectiveCamera, Scene, Timer, WebGLRenderer } from 'three';
 import { LIGHTING, RENDER } from '../../config.js';
 
 const MAX_FRAME_DELTA_S = 0.05;
 
 export class SceneManager {
-  #clock = new Clock();
+  #timer = new Timer();
 
   constructor(canvas) {
     const isMobile = matchMedia('(pointer: coarse)').matches;
@@ -30,7 +30,8 @@ export class SceneManager {
     this.onFrame = null;
     this.renderEnabled = true;
 
-    this.renderer.setAnimationLoop(() => this.#renderFrame());
+    this.#timer.connect(document);
+    this.renderer.setAnimationLoop((timestamp) => this.#renderFrame(timestamp));
     addEventListener('resize', () => this.#fitToViewport());
   }
 
@@ -52,8 +53,9 @@ export class SceneManager {
     this.lights.ambient.intensity = intensity.ambient;
   }
 
-  #renderFrame() {
-    const deltaSeconds = Math.min(this.#clock.getDelta(), MAX_FRAME_DELTA_S);
+  #renderFrame(timestamp) {
+    this.#timer.update(timestamp);
+    const deltaSeconds = Math.min(this.#timer.getDelta(), MAX_FRAME_DELTA_S);
     this.onFrame?.(deltaSeconds);
     if (this.renderEnabled) this.renderer.render(this.scene, this.camera);
   }

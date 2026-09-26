@@ -1,0 +1,59 @@
+html { background: #f1efe9; }
+html[data-theme='dark'] { background: #111110; }
+
+/* Il preloader deve essere visibile e corretto fin dal primo istante,
+   prima ancora che il CSS in bundle sia arrivato — altrimenti per un
+   attimo si vede solo lo sfondo (o, peggio, il DOM non ancora pronto).
+   Questa è una copia minima di loader.css con colori letterali invece
+   delle variabili (non ancora disponibili): se cambia lo stile del
+   loader o i colori del tema, va aggiornata anche qui. */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #f1efe9;
+}
+html[data-theme='dark'] .loader { background: #111110; }
+html.no-intro .loader { display: none; }
+
+.loader-logo {
+  position: relative;
+  width: min(148px, 34vw);
+  aspect-ratio: 128.5 / 141;
+  color: #141412;
+}
+html[data-theme='dark'] .loader-logo { color: #edebe4; }
+
+.loader-logo .logo-mark {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  -webkit-mask: url('/loghi/logo-mark.svg') center / contain no-repeat;
+  mask: url('/loghi/logo-mark.svg') center / contain no-repeat;
+}
+.loader-logo-ghost { opacity: 0.14; }
+.loader-logo-fill { clip-path: inset(calc(100% - var(--p, 0) * 1%) 0 0 0); }
+
+.loader-bar {
+  width: min(200px, 46vw);
+  height: 2px;
+  background: rgb(20 20 18 / 0.14);
+  overflow: hidden;
+}
+html[data-theme='dark'] .loader-bar { background: rgb(237 235 228 / 0.16); }
+.loader-bar > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--p, 0) * 1%);
+  background: #141412;
+}
+html[data-theme='dark'] .loader-bar > span { background: #edebe4; }
+
+/* Il loader copre già tutto lo schermo: nascondere il body serve solo
+   quando si salta l'intro (contenuti ancora vuoti, senza loader sopra). */
+html.pre-css.no-intro body { visibility: hidden; }

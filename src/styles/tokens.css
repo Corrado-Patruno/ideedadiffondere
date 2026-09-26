@@ -40,12 +40,3 @@
 
   color-scheme: dark;
 }
-
-html.theme-switching,
-html.theme-switching body,
-html.theme-switching .site-nav,
-html.theme-switching .section,
-html.theme-switching main,
-html.theme-switching .site-footer {
-  transition: background-color 0.45s ease, color 0.45s ease;
-}

@@ -1,5 +1,5 @@
 import { CatmullRomCurve3, MathUtils, Spherical, Vector3 } from 'three';
-import { INTRO, ORBIT } from '../../config.js';
+import { CAMERA_START, INTRO, ORBIT } from '../../config.js';
 import { clamp, smoothstep } from '../../utils/math.js';
 
 const { damp } = MathUtils;
@@ -15,6 +15,7 @@ const ZOOM_SENSITIVITY = 0.0025;
 export class CameraDirector {
   #spherical = new Spherical();
   #gateAxis = null;
+  #world = null;
 
   constructor(camera, canvas) {
     this.camera = camera;
@@ -36,6 +37,7 @@ export class CameraDirector {
     this.elapsed = 0;
 
     this.#bindPointerInput();
+    addEventListener('resize', () => this.#buildPaths());
   }
 
   setProgress(progress) {
@@ -48,16 +50,37 @@ export class CameraDirector {
   }
 
   setWorld({ radius, gate }) {
+    this.#world = { radius, gate };
+    this.#buildPaths();
+    this.progress = this.rawProgress;
+    this.ready = true;
+  }
+
+  #buildPaths() {
+    if (!this.#world) return;
+    const { radius, gate } = this.#world;
+
     const up = new Vector3(0, 1, 0);
     const forward = gate.direction.clone().setY(0).normalize();
     const side = new Vector3().crossVectors(up, forward).normalize();
     const gatePoint = gate.position.clone();
 
+    const aspect = innerWidth / innerHeight;
+    const wideness = smoothstep(CAMERA_START.narrowAspect, CAMERA_START.wideAspect, aspect);
+    const startDistanceScale = MathUtils.lerp(
+      CAMERA_START.narrowDistanceScale,
+      CAMERA_START.wideDistanceScale,
+      wideness
+    );
+
+    // Ancorata all'altezza del portone (non all'origine del mondo), così la
+    // discesa verso il portone è monotona e non passa mai sotto il suo livello.
     const pointAt = (alongGate, lateral, height) =>
       new Vector3()
         .addScaledVector(forward, radius * alongGate)
         .addScaledVector(side, radius * lateral)
-        .setY(radius * height);
+        .multiplyScalar(startDistanceScale)
+        .setY(radius * height * startDistanceScale + gatePoint.y);
 
     const offsetFromGate = (alongGate, height = 0) =>
       gatePoint
@@ -91,9 +114,6 @@ export class CameraDirector {
       origin: gatePoint.clone(),
       offset: gatePoint.dot(forward),
     };
-
-    this.progress = this.rawProgress;
-    this.ready = true;
   }
 
   update(deltaSeconds) {

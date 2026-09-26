@@ -10,6 +10,19 @@ export const RENDER = {
   mobileMaxPixelRatio: 1,
 };
 
+export const CAMERA_START = {
+  // Sotto narrowAspect la camera parte alla distanza narrowDistanceScale,
+  // sopra wideAspect alla distanza wideDistanceScale; in mezzo interpola.
+  narrowAspect: 0.6,
+  wideAspect: 1.4,
+  narrowDistanceScale: 1.3,
+  wideDistanceScale: 0.8,
+};
+
+export const MODEL_OFFSET = {
+  verticalLift: 0.15,
+};
+
 export const INTRO = {
   smoothing: 4.5,
   heroFadeEnd: 0.18,
