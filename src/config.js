@@ -7,6 +7,7 @@ export const INTRO_MIN_DURATION_MS = 2000;
 export const RENDER = {
   fieldOfView: 45,
   maxPixelRatio: 2,
+  mobileMaxPixelRatio: 1,
 };
 
 export const INTRO = {

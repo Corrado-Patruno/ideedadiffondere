@@ -7,9 +7,13 @@ export class SceneManager {
   #clock = new Clock();
 
   constructor(canvas) {
-    this.renderer = new WebGLRenderer({ canvas, antialias: true });
+    const isMobile = matchMedia('(pointer: coarse)').matches;
+
+    this.renderer = new WebGLRenderer({ canvas, antialias: !isMobile });
     this.renderer.setSize(innerWidth, innerHeight);
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, RENDER.maxPixelRatio));
+    this.renderer.setPixelRatio(
+      Math.min(devicePixelRatio, isMobile ? RENDER.mobileMaxPixelRatio : RENDER.maxPixelRatio)
+    );
 
     this.scene = new Scene();
     this.camera = new PerspectiveCamera(RENDER.fieldOfView, innerWidth / innerHeight, 0.5, 5000);
