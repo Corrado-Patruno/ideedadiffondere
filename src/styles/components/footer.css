@@ -3,7 +3,7 @@
   z-index: 10;
   background: var(--fg);
   color: var(--bg);
-  padding: clamp(60px, 9vh, 100px) calc(var(--pad) + 16px) 28px;
+  padding: clamp(60px, 9vh, 100px) var(--pad) 28px;
 }
 
 .footer-top {
