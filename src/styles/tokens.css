@@ -24,7 +24,7 @@
      di un max-width separato — il contenuto usa sempre tutto lo schermo. */
   --nav-h: clamp(116px, 12vh, 140px);
   --pad: clamp(20px, 4.5vw, 64px);
-  --logo-h: clamp(56px, 8vw, 88px);
+  --logo-h: clamp(66px, 8vw, 88px);
   /* Condivisa da menu header e footer: stessa dimensione ovunque. */
   --menu-size: clamp(14px, 1.1vw, 17px);
 
