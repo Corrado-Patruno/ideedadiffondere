@@ -22,6 +22,16 @@ export function initBackToTop({ threshold = DEFAULT_THRESHOLD, handlesOwnScroll 
   addEventListener('resize', syncVisibility);
   syncVisibility();
 
+  // Nasconde il pulsante sopra al footer, dove altrimenti si sovrappone
+  // ai crediti allineati a destra.
+  const footer = document.querySelector('.site-footer');
+  if (footer) {
+    const footerObserver = new IntersectionObserver(([entry]) =>
+      button.classList.toggle('is-over-footer', entry.isIntersecting)
+    );
+    footerObserver.observe(footer);
+  }
+
   if (handlesOwnScroll) {
     button.addEventListener('click', (event) => {
       event.preventDefault();

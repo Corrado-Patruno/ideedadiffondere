@@ -3,7 +3,7 @@
   z-index: 10;
   background: var(--fg);
   color: var(--bg);
-  padding: clamp(60px, 9vh, 100px) var(--pad) 28px;
+  padding: clamp(60px, 9vh, 100px) calc(var(--pad) + 16px) 28px;
 }
 
 .footer-top {
@@ -99,6 +99,27 @@
 
 .footer-bottom a:hover {
   color: var(--bg);
+}
+
+.footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-credit-logo {
+  display: block;
+  height: 54px;
+  aspect-ratio: 1923 / 2549;
+  background: currentColor;
+  -webkit-mask: url('/loghi/logoAP.png') center / contain no-repeat;
+  mask: url('/loghi/logoAP.png') center / contain no-repeat;
+}
+
+.footer-credit-cp {
+  height: 54px;
+  width: auto;
+  border-radius: 4px;
 }
 
 @media (max-width: 760px) {

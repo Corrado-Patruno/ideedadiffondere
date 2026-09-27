@@ -40,7 +40,8 @@
   height: 18px;
 }
 
-body.menu-open .back-to-top {
+body.menu-open .back-to-top,
+.back-to-top.is-over-footer {
   opacity: 0;
   visibility: hidden;
 }

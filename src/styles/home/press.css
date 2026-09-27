@@ -126,3 +126,18 @@
 .stampa-link:hover {
   border-color: var(--fg);
 }
+
+@media (max-width: 760px) {
+  .stampa-card {
+    /* Un solo articolo alla volta, con un accenno del successivo per far
+       capire che si scorre. */
+    flex-basis: 82%;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .stampa-card {
+    /* Due articoli interi più l'inizio del terzo. */
+    flex-basis: 42%;
+  }
+}

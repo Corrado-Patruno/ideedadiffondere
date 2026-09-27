@@ -33,6 +33,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -75,7 +76,7 @@ body::after {
 
 .section {
   position: relative;
-  padding: clamp(90px, 12vh, 150px) var(--pad);
+  padding: clamp(72px, 10vh, 128px) var(--pad);
   /* Il padding sopra fa già da stacco sotto la nav: offset ridotto di proposito. */
   scroll-margin-top: 40px;
 }
@@ -124,6 +125,10 @@ body::after {
   .section-head {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .section {
+    padding-block: clamp(48px, 8vh, 80px);
   }
 }
 
