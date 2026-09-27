@@ -40,10 +40,18 @@
   height: 18px;
 }
 
-body.menu-open .back-to-top,
-.back-to-top.is-over-footer {
+body.menu-open .back-to-top {
   opacity: 0;
   visibility: hidden;
+}
+
+/* Sul footer si sovrappone ai crediti solo da desktop in su: da mobile
+   il footer va in colonna e c'è spazio, quindi il pulsante resta visibile. */
+@media (min-width: 761px) {
+  .back-to-top.is-over-footer {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
