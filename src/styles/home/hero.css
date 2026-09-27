@@ -28,7 +28,7 @@
 }
 
 .hero-eyebrow {
-  font-size: 12px;
+  font-size: clamp(11px, 1.5vw, 13px);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -54,7 +54,6 @@
   }
 
   .hero-eyebrow {
-    font-size: 13px;
     margin-bottom: 16px;
   }
 }

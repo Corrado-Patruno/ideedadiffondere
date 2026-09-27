@@ -7,7 +7,7 @@
   background: var(--fg);
   color: var(--bg);
   border-radius: 999px;
-  font-size: 13px;
+  font-size: var(--menu-size);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;

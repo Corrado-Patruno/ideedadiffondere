@@ -1,8 +1,8 @@
 .theme-toggle {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: 50%;
   transition: border-color 0.25s ease, transform 0.25s var(--ease-out),
@@ -21,8 +21,8 @@ body.menu-open .theme-toggle {
 }
 
 .theme-toggle svg {
-  width: 17px;
-  height: 17px;
+  width: 19px;
+  height: 19px;
   grid-area: 1 / 1;
   transition: opacity 0.3s ease, transform 0.4s var(--ease-out);
 }

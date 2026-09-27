@@ -51,7 +51,9 @@
 }
 
 .stampa-card {
-  flex: 0 0 min(400px, 84vw);
+  /* Cresce con lo schermo invece di fermarsi a un massimo fisso, così le
+     immagini restano proporzionate anche su display molto larghi. */
+  flex: 0 0 clamp(260px, 30vw, 640px);
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -85,7 +87,8 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 0.72rem;
+  /* Stessa taglia della meta-informazione degli eventi (.evento-data). */
+  font-size: clamp(0.82rem, 1vw, 1.05rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -93,21 +96,27 @@
 }
 
 .stampa-titolo {
-  font-size: 1.25rem;
+  font-size: clamp(1.5rem, 2.1vw, 2.1rem);
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.01em;
+  /* Riserva sempre lo spazio di 3 righe: titoli di lunghezza diversa non
+     sfasano più l'inizio di estratto e link tra una scheda e l'altra. */
+  min-height: calc(1.25em * 3);
 }
 
 .stampa-estratto {
-  font-size: 0.93rem;
+  /* Stessa taglia della descrizione degli eventi (.evento-desc). */
+  font-size: clamp(0.92rem, 1.15vw, 1.2rem);
+  line-height: 1.5;
   color: var(--muted);
+  min-height: calc(1.5em * 3);
 }
 
 .stampa-link {
   margin-top: auto;
   width: fit-content;
-  font-size: 0.85rem;
+  font-size: clamp(0.85rem, 1vw, 1rem);
   font-weight: 600;
   border-bottom: 1px solid var(--line-strong);
   padding-bottom: 2px;

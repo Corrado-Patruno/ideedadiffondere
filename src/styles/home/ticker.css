@@ -1,7 +1,7 @@
 .ticker {
   overflow: hidden;
   border-block: 1px solid var(--line);
-  padding-block: 16px;
+  padding-block: clamp(16px, 2vw, 26px);
   background: var(--bg);
 }
 
@@ -10,7 +10,8 @@
   width: max-content;
   white-space: nowrap;
   animation: ticker-scroll var(--ticker-dur, 30s) linear infinite;
-  font-size: 13px;
+  /* Stessa dimensione del menu dell'header/footer (--menu-size). */
+  font-size: var(--menu-size);
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -22,7 +23,7 @@
 }
 
 .ticker-group > span {
-  margin-inline-end: 56px;
+  margin-inline-end: clamp(24px, 3vw, 48px);
 }
 
 @keyframes ticker-scroll {

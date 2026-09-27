@@ -6,17 +6,11 @@ export const INTRO_MIN_DURATION_MS = 2000;
 
 export const RENDER = {
   fieldOfView: 45,
+  // Proporzione fissa dell'inquadratura del castello: uguale su ogni
+  // dispositivo/finestra, non dipende mai dalla dimensione reale dello schermo.
+  referenceAspect: 16 / 9,
   maxPixelRatio: 2,
   mobileMaxPixelRatio: 1,
-};
-
-export const CAMERA_START = {
-  // Sotto narrowAspect la camera parte alla distanza narrowDistanceScale,
-  // sopra wideAspect alla distanza wideDistanceScale; in mezzo interpola.
-  narrowAspect: 0.6,
-  wideAspect: 1.4,
-  narrowDistanceScale: 1.3,
-  wideDistanceScale: 0.8,
 };
 
 export const MODEL_OFFSET = {

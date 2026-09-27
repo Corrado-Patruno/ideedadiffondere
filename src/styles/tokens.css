@@ -19,9 +19,14 @@
 
   --font: 'Inter IDD', system-ui, -apple-system, sans-serif;
 
-  --nav-h: 84px;
+  /* Altezza header/gutter laterale: uguali ovunque (header, footer, corpo
+     pagina) così tutto resta allineato ed è responsive di suo, senza bisogno
+     di un max-width separato — il contenuto usa sempre tutto lo schermo. */
+  --nav-h: clamp(116px, 12vh, 140px);
   --pad: clamp(20px, 4.5vw, 64px);
-  --container: 1240px;
+  --logo-h: clamp(56px, 8vw, 88px);
+  /* Condivisa da menu header e footer: stessa dimensione ovunque. */
+  --menu-size: clamp(14px, 1.1vw, 17px);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

@@ -2,33 +2,33 @@
   "ticker": ["Cultura", "Comunità", "Eventi", "Idee", "TEDx"],
 
   "team": [
-    { "nome": "Adriano Del Re", "ruolo": "", "immagine": "/membri/Adriano Del Re.jpg", "linkedin": "" },
-    { "nome": "Alessandro Curiello", "ruolo": "", "immagine": "/membri/Alessandro Curiello.jpg", "linkedin": "" },
-    { "nome": "Angelo Falcone", "ruolo": "", "immagine": "/membri/angelo-falcone.jpg", "linkedin": "" },
-    { "nome": "Anna Paolillo", "ruolo": "", "immagine": "/membri/Anna Paolillo.jpg", "linkedin": "" },
-    { "nome": "Antonio Dipietro", "ruolo": "", "immagine": "/membri/antonio-dipietro.jpg", "linkedin": "" },
-    { "nome": "Arcangelo Tannoia", "ruolo": "", "immagine": "/membri/Arcangelo Tannoia.jpg", "linkedin": "" },
-    { "nome": "Corrado Patruno", "ruolo": "", "immagine": "/membri/Corrado Patruno.jpg", "linkedin": "" },
-    { "nome": "Cristina Stanganello", "ruolo": "", "immagine": "/membri/Cristina Stanganello.jpg", "linkedin": "" },
-    { "nome": "Domenico Falconetti", "ruolo": "", "immagine": "/membri/Domenico Falconetti.jpg", "linkedin": "" },
-    { "nome": "Elio Palumbieri", "ruolo": "", "immagine": "/membri/Elio Palumbieri.jpg", "linkedin": "" },
-    { "nome": "Francesca Pedico", "ruolo": "", "immagine": "/membri/Francesca Pedico.JPG", "linkedin": "" },
-    { "nome": "Francesca Ricco", "ruolo": "", "immagine": "/membri/Francesca Ricco.jpg", "linkedin": "" },
-    { "nome": "Francesco Diella", "ruolo": "", "immagine": "/membri/Francesco Diella.jpg", "linkedin": "" },
-    { "nome": "Gaia Prudente", "ruolo": "", "immagine": "/membri/Gaia Prudente.jpg", "linkedin": "" },
-    { "nome": "Gianfrancesca Distaso", "ruolo": "", "immagine": "/membri/Gianfrancesca Distaso.jpg", "linkedin": "" },
-    { "nome": "Giuliana Damato", "ruolo": "", "immagine": "/membri/giuliana-damato.jpg", "linkedin": "" },
-    { "nome": "Lorenza Ragno", "ruolo": "", "immagine": "/membri/Lorenza Ragno.jpg", "linkedin": "" },
-    { "nome": "Luigi Leonardo Cascella", "ruolo": "", "immagine": "/membri/Luigi Leonardo Cascella.jpg", "linkedin": "" },
-    { "nome": "Luigi Patruno", "ruolo": "", "immagine": "/membri/Luigi Patruno.jpg", "linkedin": "" },
-    { "nome": "Maria Bollino", "ruolo": "", "immagine": "/membri/Maria Bollino.jpg", "linkedin": "" },
-    { "nome": "Maria Luisa Dadduzio", "ruolo": "", "immagine": "/membri/Maria Luisa Dadduzio.jpg", "linkedin": "" },
-    { "nome": "Maria Teresa Dibari", "ruolo": "", "immagine": "/membri/Maria Teresa Dibari.jpg", "linkedin": "" },
-    { "nome": "Nicola Italia", "ruolo": "", "immagine": "/membri/Nicola Italia.jpg", "linkedin": "" },
-    { "nome": "Nicolas Capasso", "ruolo": "", "immagine": "/membri/nicolas-capasso.jpg", "linkedin": "" },
-    { "nome": "Roberta Messinese", "ruolo": "", "immagine": "/membri/Roberta Messinese.jpg", "linkedin": "" },
-    { "nome": "Ruggiero Disalvo", "ruolo": "", "immagine": "/membri/Ruggiero Disalvo.jpg", "linkedin": "" },
-    { "nome": "Viviana Rondinone", "ruolo": "", "immagine": "/membri/Viviana Rondinone.jpg", "linkedin": "" }
+    { "nome": "Adriano Del Re", "ruolo": "", "immagine": "/membri/Adriano Del Re.jpg", "linkedin": "https://www.linkedin.com/in/adriano-del-re/" },
+    { "nome": "Alessandro Curiello", "ruolo": "", "immagine": "/membri/Alessandro Curiello.jpg", "linkedin": "https://www.linkedin.com/in/alessandro-curiello/" },
+    { "nome": "Angelo Falcone", "ruolo": "", "immagine": "/membri/angelo-falcone.jpg", "linkedin": "https://www.linkedin.com/in/angelo-falcone/" },
+    { "nome": "Anna Paolillo", "ruolo": "", "immagine": "/membri/Anna Paolillo.jpg", "linkedin": "https://www.linkedin.com/in/anna-paolillo/" },
+    { "nome": "Antonio Dipietro", "ruolo": "", "immagine": "/membri/antonio-dipietro.jpg", "linkedin": "https://www.linkedin.com/in/antonio-dipietro/" },
+    { "nome": "Arcangelo Tannoia", "ruolo": "", "immagine": "/membri/Arcangelo Tannoia.jpg", "linkedin": "https://www.linkedin.com/in/arcangelo-tannoia-6116a2151/" },
+    { "nome": "Corrado Patruno", "ruolo": "", "immagine": "/membri/Corrado Patruno.jpg", "linkedin": "https://www.linkedin.com/in/corrado-patruno-361995185/" },
+    { "nome": "Cristina Stanganello", "ruolo": "", "immagine": "/membri/Cristina Stanganello.jpg", "linkedin": "https://www.linkedin.com/in/cristina-stanganello-4052a6175/" },
+    { "nome": "Domenico Falconetti", "ruolo": "", "immagine": "/membri/Domenico Falconetti.jpg", "linkedin": "https://www.linkedin.com/in/domenico-falconetti-552217225/" },
+    { "nome": "Elio Palumbieri", "ruolo": "", "immagine": "/membri/Elio Palumbieri.jpg", "linkedin": "https://www.linkedin.com/in/eliopalumbieri/" },
+    { "nome": "Francesca Pedico", "ruolo": "", "immagine": "/membri/Francesca Pedico.JPG", "linkedin": "https://www.linkedin.com/in/francesca-pedico-311160174/" },
+    { "nome": "Francesca Ricco", "ruolo": "", "immagine": "/membri/Francesca Ricco.jpg", "linkedin": "https://www.linkedin.com/in/francescaricco/" },
+    { "nome": "Francesco Diella", "ruolo": "", "immagine": "/membri/Francesco Diella.jpg", "linkedin": "https://www.linkedin.com/in/francesco-pio-diella-651629234/" },
+    { "nome": "Gaia Prudente", "ruolo": "", "immagine": "/membri/Gaia Prudente.jpg", "linkedin": "https://www.linkedin.com/in/gaia-prudente/" },
+    { "nome": "Gianfrancesca Distaso", "ruolo": "", "immagine": "/membri/Gianfrancesca Distaso.jpg", "linkedin": "https://www.linkedin.com/in/gianfrancesca-distaso/" },
+    { "nome": "Giuliana Damato", "ruolo": "", "immagine": "/membri/giuliana-damato.jpg", "linkedin": "https://www.linkedin.com/in/giuliana-damato-554275288/" },
+    { "nome": "Lorenza Ragno", "ruolo": "", "immagine": "/membri/Lorenza Ragno.jpg", "linkedin": "https://www.linkedin.com/in/lorenza-ragno-147462211/" },
+    { "nome": "Luigi Leonardo Cascella", "ruolo": "", "immagine": "/membri/Luigi Leonardo Cascella.jpg", "linkedin": "https://www.linkedin.com/in/luigileonardocascella/" },
+    { "nome": "Luigi Patruno", "ruolo": "", "immagine": "/membri/Luigi Patruno.jpg", "linkedin": "https://www.linkedin.com/in/luigipatruno2/" },
+    { "nome": "Maria Bollino", "ruolo": "", "immagine": "/membri/Maria Bollino.jpg", "linkedin": "https://www.linkedin.com/in/maria-giuseppina-bollino/" },
+    { "nome": "Maria Luisa Dadduzio", "ruolo": "", "immagine": "/membri/Maria Luisa Dadduzio.jpg", "linkedin": "https://www.linkedin.com/in/maria-luisa-dadduzio-398999121/" },
+    { "nome": "Maria Teresa Dibari", "ruolo": "", "immagine": "/membri/Maria Teresa Dibari.jpg", "linkedin": "https://www.linkedin.com/in/maria-teresa-dibari-696034350/" },
+    { "nome": "Nicola Italia", "ruolo": "", "immagine": "/membri/Nicola Italia.jpg", "linkedin": "https://www.linkedin.com/in/nicola-italia-62051727a/" },
+    { "nome": "Nicolas Capasso", "ruolo": "", "immagine": "/membri/nicolas-capasso.jpg", "linkedin": "https://www.linkedin.com/in/nicolas-capasso-7473b1196/" },
+    { "nome": "Roberta Messinese", "ruolo": "", "immagine": "/membri/Roberta Messinese.jpg", "linkedin": "https://www.linkedin.com/in/roberta-messinese-5a2745323/" },
+    { "nome": "Ruggiero Disalvo", "ruolo": "", "immagine": "/membri/Ruggiero Disalvo.jpg", "linkedin": "https://www.linkedin.com/in/ruggiero-disalvo-09a379301/" },
+    { "nome": "Viviana Rondinone", "ruolo": "", "immagine": "/membri/Viviana Rondinone.jpg", "linkedin": "https://www.linkedin.com/in/viviana-rondinone/" }
   ],
 
   "eventi": [
@@ -39,28 +39,28 @@
       "link": "https://tedxbarletta.it/"
     },
     {
+      "titolo": "Pecore Elettriche",
+      "data": "2025-10-17",
+      "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
+      "link": "https://www.youtube.com/watch?v=sZmdIvxV4V4&list=PLdU1ZZ0QonVA"
+    },
+    {
       "titolo": "Foresta che Muove",
       "data": "2024-10-19",
       "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
-      "link": "https://tedxbarletta.it/"
-    },
-    {
-      "titolo": "Pecore Elettriche",
-      "data": "2024-10-17",
-      "descrizione": "TEDxBarletta al Teatro Curci di Barletta.",
-      "link": "https://tedxbarletta.it/"
+      "link": "https://www.youtube.com/watch?v=JoFLGXpBZag&list=PLOIRtyhSG_74"
     },
     {
       "titolo": "Rumore",
       "data": "2023-07-28",
       "descrizione": "TEDxBarletta al Castello di Barletta.",
-      "link": "https://tedxbarletta.it/"
+      "link": "https://www.youtube.com/watch?v=moMjXdbjaQk&list=PLNmRN0_EFExw"
     },
     {
       "titolo": "Tensione",
       "data": "2022-09-03",
       "descrizione": "TEDxBarletta al Castello di Barletta.",
-      "link": "https://tedxbarletta.it/"
+      "link": "https://www.youtube.com/watch?v=cqOKqHatou8&list=PLVBAkfpBdwhI"
     },
     {
       "titolo": "Vita Nova",

@@ -4,10 +4,10 @@
 
 .evento-row {
   display: grid;
-  grid-template-columns: 150px 1fr auto;
+  grid-template-columns: clamp(150px, 11vw, 190px) 1fr auto;
   align-items: baseline;
   gap: 8px 32px;
-  padding: 30px 6px;
+  padding: clamp(30px, 3vw, 42px) 6px;
   border-bottom: 1px solid var(--line);
   transition: background-color 0.35s ease, color 0.35s ease, padding 0.35s var(--ease-out);
 }
@@ -19,7 +19,7 @@
 }
 
 .evento-data {
-  font-size: 0.82rem;
+  font-size: clamp(0.82rem, 1vw, 1.05rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -27,20 +27,20 @@
 }
 
 .evento-titolo {
-  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-size: clamp(1.3rem, 3.2vw, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.015em;
 }
 
 .evento-desc {
   grid-column: 2;
-  font-size: 0.92rem;
+  font-size: clamp(0.92rem, 1.15vw, 1.2rem);
   opacity: 0.6;
   max-width: 60ch;
 }
 
 .evento-arrow {
-  font-size: 1.4rem;
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
   opacity: 0;
   translate: -8px 0;
   transition: opacity 0.3s ease, translate 0.35s var(--ease-out);

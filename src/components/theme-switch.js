@@ -19,27 +19,15 @@ export function initThemeSwitch() {
   };
 
   const applyTheme = (theme) => {
-    const update = () => {
-      if (theme === 'dark') root.dataset.theme = 'dark';
-      else delete root.dataset.theme;
+    if (theme === 'dark') root.dataset.theme = 'dark';
+    else delete root.dataset.theme;
 
-      try {
-        localStorage.setItem(STORAGE_KEY, theme);
-      } catch {}
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch {}
 
-      syncBrowserChrome();
-      changeListeners.forEach((listener) => listener(theme));
-    };
-
-    // Un crossfade nativo dell'intera pagina, che non tocca (e quindi non
-    // rompe) le transizioni CSS già definite sui singoli componenti.
-    if (document.startViewTransition) {
-      const transition = document.startViewTransition(update);
-      transition.ready.catch(() => {});
-      transition.finished.catch(() => {});
-    } else {
-      update();
-    }
+    syncBrowserChrome();
+    changeListeners.forEach((listener) => listener(theme));
   };
 
   toggleButton.addEventListener('click', () => {

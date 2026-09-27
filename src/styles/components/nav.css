@@ -9,7 +9,7 @@
   justify-content: space-between;
   gap: 24px;
   height: var(--nav-h);
-  padding-inline: var(--pad);
+  padding-inline: calc(var(--pad) + 16px);
   transition: background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .brand .logo-mark {
-  height: 70px;
+  height: var(--logo-h);
 }
 
 .nav-right {
@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   gap: 28px;
-  font-size: 13px;
+  font-size: var(--menu-size);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;

@@ -22,7 +22,8 @@
 }
 
 .info-label {
-  font-size: 0.72rem;
+  /* Stessa taglia della meta-informazione degli eventi (.evento-data). */
+  font-size: clamp(0.82rem, 1vw, 1.05rem);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -30,7 +31,7 @@
 }
 
 .info-value {
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
   font-weight: 700;
   letter-spacing: -0.01em;
   width: fit-content;
@@ -58,7 +59,8 @@ a.info-value:hover {
 }
 
 .contact-form label span {
-  font-size: 0.72rem;
+  /* Stessa taglia della meta-informazione degli eventi (.evento-data). */
+  font-size: clamp(0.82rem, 1vw, 1.05rem);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -68,7 +70,7 @@ a.info-value:hover {
 .contact-form input,
 .contact-form textarea {
   font: inherit;
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
   color: var(--fg);
   background: transparent;
   border: none;

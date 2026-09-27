@@ -41,7 +41,7 @@ const notFoundMarkup = () => `
   </div>`;
 
 const articleMarkup = (article) => {
-  const byline = [article.testata, article.autore, formatLongDate(article.data)].filter(Boolean);
+  const byline = [formatLongDate(article.data)].filter(Boolean);
 
   return `
     <article>

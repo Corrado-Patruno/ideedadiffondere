@@ -11,31 +11,20 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  max-width: var(--container);
-  margin-inline: auto;
   padding-bottom: 44px;
 }
 
 .logo-footer {
-  height: 120px;
-}
-
-.footer-note {
-  margin-top: 18px;
-  max-width: 300px;
-  font-size: 0.95rem;
-  color: color-mix(in srgb, var(--bg) 65%, transparent);
+  height: var(--logo-h);
 }
 
 .footer-links {
   display: flex;
   flex-flow: row wrap;
   gap: 14px clamp(28px, 4vw, 56px);
-  max-width: var(--container);
-  margin-inline: auto;
   padding-block: 30px;
   border-top: 1px solid color-mix(in srgb, var(--bg) 18%, transparent);
-  font-size: 1.05rem;
+  font-size: var(--menu-size);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -78,16 +67,16 @@
 .social-btn {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
   border: 1px solid color-mix(in srgb, var(--bg) 35%, transparent);
   border-radius: 50%;
   transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s var(--ease-out);
 }
 
 .social-btn svg {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
 }
 
 .social-btn:hover {
@@ -97,8 +86,6 @@
 }
 
 .footer-bottom {
-  max-width: var(--container);
-  margin-inline: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

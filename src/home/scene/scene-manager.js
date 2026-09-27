@@ -10,13 +10,14 @@ export class SceneManager {
     const isMobile = matchMedia('(pointer: coarse)').matches;
 
     this.renderer = new WebGLRenderer({ canvas, antialias: !isMobile });
-    this.renderer.setSize(innerWidth, innerHeight);
     this.renderer.setPixelRatio(
       Math.min(devicePixelRatio, isMobile ? RENDER.mobileMaxPixelRatio : RENDER.maxPixelRatio)
     );
 
     this.scene = new Scene();
-    this.camera = new PerspectiveCamera(RENDER.fieldOfView, innerWidth / innerHeight, 0.5, 5000);
+    // Aspect fisso: l'inquadratura del castello non cambia mai ridimensionando
+    // la finestra, si ritaglia soltanto (come un object-fit: cover).
+    this.camera = new PerspectiveCamera(RENDER.fieldOfView, RENDER.referenceAspect, 0.5, 5000);
 
     this.lights = {
       key: new DirectionalLight(0xffffff, LIGHTING.light.key),
@@ -30,6 +31,7 @@ export class SceneManager {
     this.onFrame = null;
     this.renderEnabled = true;
 
+    this.#fitToViewport();
     this.#timer.connect(document);
     this.renderer.setAnimationLoop((timestamp) => this.#renderFrame(timestamp));
     addEventListener('resize', () => this.#fitToViewport());
@@ -60,9 +62,15 @@ export class SceneManager {
     if (this.renderEnabled) this.renderer.render(this.scene, this.camera);
   }
 
+  // Copre sempre l'intero viewport senza mai deformare o "rimpicciolire"
+  // l'inquadratura: quando la finestra ha proporzioni diverse da
+  // RENDER.referenceAspect si ritaglia (come object-fit: cover), l'immagine
+  // non viene mai scalata rispetto a quella di riferimento.
   #fitToViewport() {
-    this.camera.aspect = innerWidth / innerHeight;
-    this.camera.updateProjectionMatrix();
-    this.renderer.setSize(innerWidth, innerHeight);
+    const viewportAspect = innerWidth / innerHeight;
+    const wider = viewportAspect > RENDER.referenceAspect;
+    const width = wider ? innerWidth : innerHeight * RENDER.referenceAspect;
+    const height = wider ? innerWidth / RENDER.referenceAspect : innerHeight;
+    this.renderer.setSize(width, height);
   }
 }

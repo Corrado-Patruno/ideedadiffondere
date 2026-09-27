@@ -75,8 +75,6 @@ body::after {
 
 .section {
   position: relative;
-  max-width: var(--container);
-  margin-inline: auto;
   padding: clamp(90px, 12vh, 150px) var(--pad);
   /* Il padding sopra fa già da stacco sotto la nav: offset ridotto di proposito. */
   scroll-margin-top: 40px;
@@ -117,7 +115,7 @@ body::after {
 }
 
 .section-intro {
-  font-size: 0.98rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem);
   color: var(--muted);
   max-width: 40ch;
 }
